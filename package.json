@@ -1,0 +1,24 @@
+{
+  "name": "gamebot",
+  "version": "1.0.0",
+  "description": "gameing for your Discord guild !",
+  "main": "index.js",
+  "scripts": {
+	"registerCommands": "node deploy-commands.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "No"
+  },
+  "keywords": [
+    "no"
+  ],
+  "author": "ROBUX MAN !?!?",
+  "license": "WTFPL",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.31.0",
+    "discord.js": "^13.6.0"
+  }
+}
