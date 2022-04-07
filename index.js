@@ -40,17 +40,17 @@ client.on('interactionCreate', async interaction => {
 						return latestMessage === query
 					},
 					api: {
-						sendMessage: (request, components) => {
+						sendMessage: async (request, components) => {
 							let message;
 							if (components) {
-								message = await interaction.channel.send({ content: request, components: [components] })
+								message = await interaction.channel.send({ content: request, components: components })
 							} else {
 								message = await interaction.channel.send(request);
 							}
 							latestMessage = message;
 							return message;
 						},
-						replyToInteraction: (interaction, request, components) => {
+						replyToInteraction: async (interaction, request, components) => {
 							let message;
 							if (components) {
 								message = interaction.reply({ content: request, components: components})
