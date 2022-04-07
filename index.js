@@ -1,5 +1,5 @@
 const { Client, Intents } = require('discord.js');
-const { dashboardPort, token } = require('./settings.json');
+const { token } = require('./loadConfig.js');
 const fs = require('fs'); // for reading enabledGames.csv
 const { findSourceMap } = require('module');
 

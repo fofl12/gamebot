@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require('./settings.json');
+const { clientId, guildId, token } = require('./loadConfig.js');
 
 const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('Ping bot'),

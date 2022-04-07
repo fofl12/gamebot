@@ -1,7 +1,5 @@
 {
-	"dashboardPort": 6261,
 	"token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 	"clientId": "xxxxxxxxxxxxxxxx",
-	"guildId": "xxxxxxxxxxxxxxxx",
-	"prefix": "%"
+	"guildId": "xxxxxxxxxxxxxxxx"
 }
