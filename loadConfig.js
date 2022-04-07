@@ -1,6 +1,6 @@
 let config = {}
 try {
-	config = require('./config.json')
+	config = require('./settings.json')
 } catch {
 	config = {
 		token: process.env.TOKEN | "???????",
