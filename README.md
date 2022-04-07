@@ -10,11 +10,18 @@ You must first set up the bot credentials before you can use the bot:
     > The bot *must* be able to read messages and send messages, otherwise it will not function correctly
 3. create a copy of the file `settings.json.def` and call it `settings.json`
 4. put the necessary credentials in `settings.json` (guildId is the guild of the server that the bot is going to be used in)
+5. register commands
+```
+npm run registerCommands
+```
+> **Warning!**  
+> You must do this every time you modify the commands in `deploy-commands.js`
+
 
 ### Running  
 just run
 ```
-npm init
+node .
 ```
 
 ### Activating games
