@@ -1,4 +1,4 @@
-const { Client, Intents, MessageActionRow, MessageButton } = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const { dashboardPort, token } = require('./settings.json');
 const fs = require('fs'); // for reading enabledGames.csv
 const { findSourceMap } = require('module');
@@ -50,12 +50,25 @@ client.on('interactionCreate', async interaction => {
 							latestMessage = message;
 							return message;
 						},
+						latestMessage: () => latestMessage,
+						sendEmbed: async (embed, components) => {
+							let message;
+							console.log(components)
+							if (components) {
+								message = await interaction.channel.send({ embeds: [embed], components: components })
+								console.log(message)
+							} else {
+								message = await interaction.channel.send({ embeds: [embed] })
+							}
+							latestMessage = message;
+							return message
+						},
 						replyToInteraction: async (interaction, request, components) => {
 							let message;
 							if (components) {
-								message = interaction.reply({ content: request, components: components})
+								message = await interaction.reply({ content: request, components: components})
 							} else {
-								interaction.reply(request)
+								message = await interaction.reply(request)
 							}
 							latestMessage = message;
 							return message
@@ -63,12 +76,6 @@ client.on('interactionCreate', async interaction => {
 						terminate: () => {
 							tasks.splice(tasks.indexOf(task), 1);
 							task = null
-						},
-						newButtonRow: buttons => {
-							return new MessageActionRow().addComponents(buttons)
-						},
-						newButton: () => {
-							return new MessageButton()
 						},
 						user: interaction.user
 					}

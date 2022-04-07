@@ -11,9 +11,3 @@ reply to a specific interaction, optionally with components
 terminate the game
 > **Warning!**  
 > This must be used after the game ends, otherwise it may result in memory leaks
-
-### `newButtonRow(Button[] buttons) -> ButtonRow`  
-create a new button row with the specified buttons
-
-### `newButton() -> Button`  
-create a new button to use in `newButtonRow`

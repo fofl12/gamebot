@@ -1,10 +1,23 @@
+const { MessageActionRow, MessageButton } = require('discord.js');
+
 module.exports = {
 	desc: "Rock paper scissor",
 	boot: api => {
-		let rockButton = api.newButton().setCustomId('rock').setLabel('Rock').setStyle('SECONDARY')
-		let paperButton = api.newButton().setCustomId('paper').setLabel('Paper').setStyle('SECONDARY')
-		let scissorButton = api.newButton().setCustomId('scissor').setLabel('Scissors').setStyle('SECONDARY')
-		let buttonRow = api.newButtonRow([rockButton, paperButton, scissorButton])
+		const buttonRow = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setCustomId('rock')
+					.setLabel('Rock')
+					.setStyle('SECONDARY'),
+				new MessageButton()
+					.setCustomId('paper')
+					.setLabel('Paper')
+					.setStyle('SECONDARY'),
+				new MessageButton()
+					.setCustomId('scissor')
+					.setLabel('Scissors')
+					.setStyle('SECONDARY'),
+			);
 		api.sendMessage(`${api.user} Select your selection:`, [buttonRow])
 	},
 	interact: (api, interaction) => {
