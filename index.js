@@ -41,20 +41,24 @@ client.on('interactionCreate', async interaction => {
 					},
 					api: {
 						sendMessage: (request, components) => {
+							let message;
 							if (components) {
-								interaction.channel.send({ content: request, components: [components]})
-									.then(message => latestMessage = message)
+								message = await interaction.channel.send({ content: request, components: [components] })
 							} else {
-								interaction.channel.send(request).then(message => latestMessage = message)
+								message = await interaction.channel.send(request);
 							}
+							latestMessage = message;
+							return message;
 						},
 						replyToInteraction: (interaction, request, components) => {
+							let message;
 							if (components) {
-								interaction.reply({ content: request, components: [components]})
-									.then(message => latestMessage = message)
+								message = interaction.reply({ content: request, components: components})
 							} else {
-								interaction.reply(request).then(message => latestMessage = message)
+								interaction.reply(request)
 							}
+							latestMessage = message;
+							return message
 						},
 						terminate: () => {
 							tasks.splice(tasks.indexOf(task), 1);

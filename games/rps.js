@@ -5,7 +5,7 @@ module.exports = {
 		let paperButton = api.newButton().setCustomId('paper').setLabel('Paper').setStyle('SECONDARY')
 		let scissorButton = api.newButton().setCustomId('scissor').setLabel('Scissors').setStyle('SECONDARY')
 		let buttonRow = api.newButtonRow([rockButton, paperButton, scissorButton])
-		api.sendMessage(`${api.user} Select your selection:`, buttonRow)
+		api.sendMessage(`${api.user} Select your selection:`, [buttonRow])
 	},
 	interact: (api, interaction) => {
 		let selection;
